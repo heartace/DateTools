@@ -107,8 +107,7 @@ static NSCalendar *implicitCalendar = nil;
  *  @return NSString - Formatted return string
  */
 - (NSString*)timeAgoSinceNow{
-    return @"Seconds before";
-//    return [self timeAgoSinceDate:[NSDate date]];
+    return [self timeAgoSinceDate:[NSDate date]];
 }
 
 /**
@@ -166,10 +165,10 @@ static NSCalendar *implicitCalendar = nil;
     if (difference.hour < 24) {
         if (difference.hour >= 1) {
             return [self localizedStringFor:format valueType:HoursAgo value:difference.hour];
-        } else if (difference.minute >= 1) {
+        } else if (difference.minute >= 10) {
             return [self localizedStringFor:format valueType:MinutesAgo value:difference.minute];
         } else {
-            return [self localizedStringFor:format valueType:SecondsAgo value:difference.second];
+            return DateToolsLocalizedStrings(@"Just now");
         }
         
     } else {
