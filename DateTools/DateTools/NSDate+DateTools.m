@@ -107,7 +107,8 @@ static NSCalendar *implicitCalendar = nil;
  *  @return NSString - Formatted return string
  */
 - (NSString*)timeAgoSinceNow{
-    return [self timeAgoSinceDate:[NSDate date]];
+    return @"Seconds before";
+//    return [self timeAgoSinceDate:[NSDate date]];
 }
 
 /**
